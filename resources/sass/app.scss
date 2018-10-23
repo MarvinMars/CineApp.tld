@@ -1,0 +1,31 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~vuetify/dist/vuetify.min.css';
+
+.application--wrap{
+  background: linear-gradient(#1e1e2f,#1e1e24);
+}
+.menu-mr{
+  background: #ba54f5;
+  background: linear-gradient(0deg,#ba54f5,#e14eca);
+  box-shadow: 0 0 45px 0 rgba(0,0,0,.6);
+  margin-top: 60px!important;
+  margin-left: 20px!important;
+  border-radius: 5px;
+  width: 250px!important;
+  height:90%!important;
+}
+.toolbar-mr{
+  background-color: transparent!important;
+  box-shadow: none;
+}
+.v-navigation-drawer .v-list{
+  background: transparent!important;
+}
