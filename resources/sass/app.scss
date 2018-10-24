@@ -29,3 +29,12 @@
 .v-navigation-drawer .v-list{
   background: transparent!important;
 }
+.theme--dark.v-card {
+  background-color: #27293d;
+  border-color: #27293d;
+  border-radius: .2857rem;
+  color: hsla(0,0%,100%,.6);
+}
+.v-btn:not(.v-btn--depressed):not(.v-btn--flat){
+  background-image: linear-gradient(to top right,#4ee6d7,#8242ad,#1c1d2d);
+}

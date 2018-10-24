@@ -10498,3 +10498,15 @@ a.text-dark:focus {
   background: transparent !important;
 }
 
+.theme--dark.v-card {
+  background-color: #27293d;
+  border-color: #27293d;
+  border-radius: .2857rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.v-btn:not(.v-btn--depressed):not(.v-btn--flat) {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#4ee6d7), color-stop(#8242ad), to(#1c1d2d));
+  background-image: linear-gradient(to top right, #4ee6d7, #8242ad, #1c1d2d);
+}
+

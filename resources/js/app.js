@@ -22,9 +22,10 @@ Vue.use(Vuetify);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-Vue.component('app', require('./components/app.vue'));
-Vue.component('fotocontent', require('./components/content.vue'));
+Vue.component('app', require('./components/dashboard/app.vue'));
+Vue.component('menu-navbar', require('./components/dashboard/menu-navbar.vue'));
+Vue.component('feed', require('./components/dashboard/content/feed.vue'));
+Vue.component('film-card', require('./components/dashboard/content/film/film-card.vue'));
 const Dashboard = { template: '<app></app>' };
 
 const routes = [
