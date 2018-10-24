@@ -1,17 +1,13 @@
-
 <template>
-    <v-container v-bind="{ [`grid-list-${size}`]: true }" fluid>
+    <v-container fluid>
         <v-layout row wrap>
-            <v-flex
-                    v-for="n in 91"
-                    :key="n"
-                    xs4
-            >
-                <v-card flat tile>
-                    <v-img
-                            :src="`https://unsplash.it/150/300?image=${Math.floor(Math.random() * 100) + 1}`"
-                            height="150px"
-                    ></v-img>
+            <v-flex xs12>
+                <v-card dark color="primary">
+                    <v-flex v-for="i in 2" :key="`6${i}`" xs6>
+                        <v-card dark color="secondary">
+                            <v-card-text class="px-0">6</v-card-text>
+                        </v-card>
+                    </v-flex>
                 </v-card>
             </v-flex>
         </v-layout>
