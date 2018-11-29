@@ -23,7 +23,7 @@
             <v-spacer></v-spacer>
             <v-icon color="#00f2c3" >star</v-icon>
             <v-icon color="#00f2c3">star</v-icon>
-            <v-icon color="#00f2c3">star_half</v-icon>
+            <!--<v-icon color="#00f2c3">star_half</v-icon>-->
             <v-icon color="#00f2c3">star_border</v-icon>
             <v-icon color="#00f2c3">star_border</v-icon>
         </v-card-actions>

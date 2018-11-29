@@ -1,0 +1,9 @@
+/.env
+/.idea
+/vendor
+/node-modules
+/public/css
+/public/js
+/package-lock.json
+/composer.lock
+/composer.phar

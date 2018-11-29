@@ -6,7 +6,7 @@
  */
 
 require('./bootstrap');
-import 'material-design-icons-iconfont/dist/material-design-icons.css';
+
 import Vuetify from 'vuetify';
 import VueRouter from 'vue-router';
 
