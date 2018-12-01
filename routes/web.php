@@ -14,3 +14,4 @@
 Route::get('/', function () {
     return view('app');
 });
+Route::resource('films','FilmController');

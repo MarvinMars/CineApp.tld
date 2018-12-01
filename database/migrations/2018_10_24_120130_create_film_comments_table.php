@@ -15,7 +15,7 @@ class CreateFilmCommentsTable extends Migration
     {
         Schema::create('film_comments', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('text')->nulable();
+            $table->string('text',500)->nulable();
             $table->integer('film_id')->unsigned()->nullable();
             $table->foreign('film_id')->references('id')->on('films');
             $table->integer('user_id')->unsigned()->nullable();

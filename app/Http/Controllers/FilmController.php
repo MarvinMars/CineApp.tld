@@ -16,7 +16,8 @@ class FilmController extends Controller
      */
     public function index()
     {
-        //
+        $films = Film::orderBy('year','desc')->paginate(20);
+        return response()->json(['films'=>$films]);
     }
 
     /**
@@ -48,7 +49,8 @@ class FilmController extends Controller
      */
     public function show($id)
     {
-        //
+        $film = Film::find($id);
+        return response()->json(['film'=>$film]);
     }
 
     /**

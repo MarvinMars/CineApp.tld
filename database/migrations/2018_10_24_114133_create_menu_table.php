@@ -15,7 +15,7 @@ class CreateMenuTable extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('slug')->nulable();
+            $table->string('slug')->nullable();
             $table->integer('settings_id')->unsigned()->nullable();
             $table->foreign('settings_id')->references('id')->on('settings');
             $table->timestamps();

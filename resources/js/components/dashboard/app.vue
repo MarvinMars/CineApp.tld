@@ -5,7 +5,6 @@
                 app
                 fixed
                 clipped
-                app
                 hide-overlay
                 class="menu-mr"
         >
@@ -40,7 +39,6 @@
             </v-list-tile-avatar>
         </v-toolbar>
         <v-content>
-
             <feed></feed>
         </v-content>
     </v-app>

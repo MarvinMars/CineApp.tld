@@ -17,8 +17,8 @@ class AddFieldsToFilmsTable extends Migration
             $table->string('year')->nullable()->after('description');
             $table->string('quality_id')->nullable()->after('year');
             $table->string('world_art_id')->nullable()->after('quality_id');
-            $table->string('kinogo_id')->nullable()->after('world_art_id');
-            $table->string('type')->nullable()->after('kinogo_id');
+            $table->string('kinopoisk_id')->nullable()->after('world_art_id');
+            $table->string('type')->nullable()->after('kinopoisk_id');
         });
     }
 
@@ -33,7 +33,7 @@ class AddFieldsToFilmsTable extends Migration
             $table->dropColumn('year');
             $table->dropColumn('quality_id');
             $table->dropColumn('world_art_id');
-            $table->dropColumn('kinogo_id');
+            $table->dropColumn('kinopoisk_id');
             $table->dropColumn('type');
         });
     }

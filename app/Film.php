@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Film extends Model
 {
     protected $fillable = [
-        'link','title','description','image'
+        'link',
+        'title',
+        'description',
+        'image',
+        'year',
+        'quality_id',
+        'world_art_id',
+        'kinopoisk_id',
+        'type'
     ];
 
 
