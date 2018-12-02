@@ -23,7 +23,7 @@
         },
         created(){
             var vm = this;
-            axios.get('/films')
+            axios.get('/api/films')
                 .then(function (res) {
                     vm.films = res.data.films.data;
                 })

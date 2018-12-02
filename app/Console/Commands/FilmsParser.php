@@ -44,10 +44,13 @@ class FilmsParser extends Command
         $response = $client->get('http://hdgo.club/films.json');
         $result = $response->getBody()->getContents();
         $parse_films = json_decode($result);
+        $bar = $this->output->createProgressBar(count($parse_films));
+        $bar->start();
         foreach ($parse_films as $parse_film){
             $data = [
                 'link'=>!empty($parse_film->url) ? $parse_film->url:null,
                 'title'=>!empty($parse_film->name) ? $parse_film->name:null,
+                'eng_title'=>!empty($parse_film->name_eng) ? $parse_film->name_eng:null,
                 'description'=>null,
                 'image'=>null,
                 'year'=>!empty($parse_film->year) ? $parse_film->year:null,
@@ -57,6 +60,8 @@ class FilmsParser extends Command
                 'type'=>!empty($parse_film->sub_type) ? $parse_film->sub_type:null,
             ];
             $result = Film::UpdateOrCreate($data);
+            if($result) $bar->advance();
         }
+        $bar->finish();
     }
 }

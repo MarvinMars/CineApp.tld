@@ -27,14 +27,20 @@ Vue.component('menu-navbar', require('./components/dashboard/menu-navbar.vue'));
 Vue.component('feed', require('./components/dashboard/content/feed.vue'));
 Vue.component('film-card', require('./components/dashboard/content/film/film-card.vue'));
 Vue.component('film-card-show', require('./components/dashboard/content/film/film-card-show.vue'));
-const Dashboard = { template: '<app></app>' };
+
+const Feed = { template: '<feed></feed>' };
+const Film = { template: '<film-card-show></film-card-show>' };
 
 const routes = [
-    { path: '/', component: Dashboard },
+    { path: '/', component: Feed },
+    {
+        name: 'film',
+        path: '/film/:FilmId',
+        component: Film
+    }
 ];
-const router = new VueRouter({
-    routes // short for `routes: routes`
-});
+
+const router = new VueRouter({routes});
 
 const app = new Vue({
     el: '#app',

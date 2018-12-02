@@ -25350,12 +25350,17 @@ Vue.component('menu-navbar', __webpack_require__(47));
 Vue.component('feed', __webpack_require__(53));
 Vue.component('film-card', __webpack_require__(56));
 Vue.component('film-card-show', __webpack_require__(61));
-var Dashboard = { template: '<app></app>' };
 
-var routes = [{ path: '/', component: Dashboard }];
-var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
-    routes: routes // short for `routes: routes`
-});
+var Feed = { template: '<feed></feed>' };
+var Film = { template: '<film-card-show></film-card-show>' };
+
+var routes = [{ path: '/', component: Feed }, {
+    name: 'film',
+    path: '/film/:FilmId',
+    component: Film
+}];
+
+var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({ routes: routes });
 
 var app = new Vue({
     el: '#app',
@@ -73242,6 +73247,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -73303,9 +73310,16 @@ var render = function() {
           _vm._v(" "),
           _c("v-icon", { staticClass: "mx-3" }, [_vm._v("fab fa-youtube")]),
           _vm._v(" "),
-          _c("v-toolbar-title", { staticClass: "mr-5 align-center" }, [
-            _c("span", { staticClass: "title" }, [_vm._v("CinePack")])
-          ]),
+          _c(
+            "router-link",
+            { attrs: { to: "/" } },
+            [
+              _c("v-toolbar-title", { staticClass: "mr-5 align-center" }, [
+                _c("span", { staticClass: "title" }, [_vm._v("CinePack")])
+              ])
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
@@ -73342,7 +73356,7 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("v-content", [_c("feed")], 1)
+      _c("v-content", [_c("router-view")], 1)
     ],
     1
   )
@@ -73755,7 +73769,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {},
     created: function created() {
         var vm = this;
-        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/films').then(function (res) {
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/films').then(function (res) {
             vm.films = res.data.films.data;
         }).catch(function (error) {
             console.log(error);
@@ -73891,23 +73905,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['film'],
     data: function data() {
         return {
             cine: this.film,
-            open_popup: false
+            open_popup: false,
+            rating: 5
         };
     },
 
@@ -74005,7 +74010,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -74016,22 +74021,32 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""])
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 //
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['url'],
     data: function data() {
-        return {};
+        return {
+            film: null
+        };
     },
 
     methods: {},
-    mounted: function mounted() {},
+    mounted: function mounted() {
+        console.log(this.$route.params);
+    },
+    created: function created() {
+        var vm = this;
+        __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get('/api/films/' + this.$route.params.FilmId).then(function (res) {
+            vm.film = res.data.film;
+        }).catch(function (error) {
+            console.log(error);
+        });
+    },
 
     computed: {},
     watch: {}
@@ -74045,30 +74060,17 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-layout",
-    { attrs: { row: "", "justify-center": "" } },
-    [
-      _c(
-        "v-dialog",
-        {
-          attrs: {
-            fullscreen: "",
-            "hide-overlay": "",
-            transition: "dialog-bottom-transition"
-          }
-        },
-        [
-          _vm.url
-            ? _c("iframe", {
-                attrs: { src: _vm.url, frameborder: "0", allowfullscreen: "" }
-              })
-            : _vm._e()
-        ]
-      )
-    ],
-    1
-  )
+  return _vm.film.link
+    ? _c("iframe", {
+        attrs: {
+          src: _vm.film.link,
+          frameborder: "0",
+          width: "50%",
+          height: "50%",
+          allowfullscreen: ""
+        }
+      })
+    : _vm._e()
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -74103,6 +74105,7 @@ var render = function() {
     [
       _c(
         "v-card",
+        { attrs: { hover: "" } },
         [
           _c("v-img", {
             attrs: {
@@ -74125,94 +74128,57 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
+          _c("v-card-text", [
+            _c(
+              "div",
+              { staticClass: "text-xs-center" },
+              [
+                _c("v-rating", {
+                  model: {
+                    value: _vm.rating,
+                    callback: function($$v) {
+                      _vm.rating = $$v
+                    },
+                    expression: "rating"
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
           _c(
             "v-card-actions",
             [
               _c(
                 "v-btn",
                 {
-                  attrs: { slot: "activator", color: "primary", dark: "" },
-                  on: {
-                    click: function($event) {
-                      _vm.open_popup = true
-                    }
+                  attrs: {
+                    slot: "activator",
+                    color: "primary",
+                    dark: "",
+                    flat: ""
                   },
                   slot: "activator"
                 },
-                [_vm._v("View")]
-              )
-            ],
-            1
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "v-layout",
-        { attrs: { row: "", "justify-center": "" } },
-        [
-          _c(
-            "v-dialog",
-            {
-              attrs: {
-                fullscreen: "",
-                "hide-overlay": "",
-                transition: "dialog-bottom-transition"
-              },
-              model: {
-                value: _vm.open_popup,
-                callback: function($$v) {
-                  _vm.open_popup = $$v
-                },
-                expression: "open_popup"
-              }
-            },
-            [
-              _c(
-                "v-card",
-                { attrs: { height: "100%" } },
                 [
-                  _vm.cine.link
-                    ? _c("iframe", {
-                        attrs: {
-                          src: _vm.cine.link,
-                          width: "100%",
-                          height: "100%",
-                          frameborder: "0",
-                          allowfullscreen: ""
-                        }
-                      })
-                    : _vm._e(),
-                  _vm._v(" "),
                   _c(
-                    "v-fab-transition",
-                    [
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: {
-                            dark: "",
-                            fab: "",
-                            fixed: "",
-                            top: "",
-                            left: ""
-                          },
-                          on: {
-                            click: function($event) {
-                              _vm.open_popup = false
-                            }
-                          }
-                        },
-                        [_c("v-icon", [_vm._v("close")])],
-                        1
-                      )
-                    ],
+                    "router-link",
+                    {
+                      attrs: {
+                        to: { name: "film", params: { FilmId: _vm.cine.id } }
+                      }
+                    },
+                    [_c("v-icon", [_vm._v("play_circle_outline")])],
                     1
                   )
                 ],
                 1
-              )
+              ),
+              _vm._v(" "),
+              _c("v-btn", { attrs: { flat: "", color: "blue" } }, [
+                _vm._v("Save")
+              ])
             ],
             1
           )

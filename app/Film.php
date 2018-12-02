@@ -9,6 +9,7 @@ class Film extends Model
     protected $fillable = [
         'link',
         'title',
+        'eng_title',
         'description',
         'image',
         'year',

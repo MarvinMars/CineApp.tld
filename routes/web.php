@@ -11,7 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-    return view('app');
-});
-Route::resource('films','FilmController');
+Route::get('/{any}', 'Home\HomeController@index')->where('any','.*');

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Home\Films;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\FilmComment;
 use App\Film;
 use App\User;
