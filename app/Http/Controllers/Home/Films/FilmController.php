@@ -15,7 +15,7 @@ class FilmController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $films = Film::orderBy('year','desc')->paginate(20);
         return response()->json(['films'=>$films]);

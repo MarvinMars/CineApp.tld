@@ -60,7 +60,18 @@ class FilmsParser extends Command
                 'type'=>!empty($parse_film->sub_type) ? $parse_film->sub_type:null,
             ];
             $result = Film::UpdateOrCreate($data);
-            if($result) $bar->advance();
+//            if($result){
+//                if(!empty($result->title)){
+//                    $wiki_response = $client->get('https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch='.$result->title.'&utf8=&format=json');
+//                    $wiki_result = $wiki_response->getBody()->getContents();
+//                    $wiki_result = json_decode($wiki_result);
+//                    $wiki_title = $wiki_result->query->search[0]->title;
+//                    $page_response = $client->get('https://en.wikipedia.org/w/api.php?action=parse&page='.$wiki_title.'&prop=images&format=json');
+//                    $page_result = json_decode($page_response->getBody()->getContents());
+//                    dd($page_result);
+//                };
+//            }
+            $bar->advance();
         }
         $bar->finish();
     }

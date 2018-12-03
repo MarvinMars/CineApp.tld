@@ -7,6 +7,7 @@
                 clipped
                 hide-overlay
                 class="menu-mr"
+                height="90%"
         >
           <menu-navbar></menu-navbar>
         </v-navigation-drawer>
@@ -16,7 +17,7 @@
                 fixed
                 clipped-left
                 app>
-            <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <v-toolbar-side-icon @click.stop="drawer = !drawer" class="gradient" ></v-toolbar-side-icon>
             <v-icon class="mx-3">fab fa-youtube</v-icon>
             <router-link to="/">
                 <v-toolbar-title class="mr-5 align-center">
@@ -25,15 +26,15 @@
             </router-link>
             <v-spacer></v-spacer>
 
-            <v-btn icon>
+            <v-btn icon class="gradient">
                 <v-icon>search</v-icon>
             </v-btn>
 
-            <v-btn icon>
+            <v-btn icon class="gradient">
                 <v-icon>apps</v-icon>
             </v-btn>
 
-            <v-btn icon>
+            <v-btn icon class="gradient">
                 <v-icon>refresh</v-icon>
             </v-btn>
             <v-list-tile-avatar>
