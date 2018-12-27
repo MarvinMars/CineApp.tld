@@ -10485,7 +10485,6 @@ a.text-dark:focus {
   margin-left: 20px !important;
   border-radius: 5px;
   width: 250px !important;
-  height: 90% !important;
 }
 
 .toolbar-mr {
@@ -10505,8 +10504,30 @@ a.text-dark:focus {
   color: rgba(255, 255, 255, 0.6);
 }
 
-.v-btn:not(.v-btn--depressed):not(.v-btn--flat) {
+.v-btn:not(.v-btn--depressed):not(.v-btn--flat).gradient {
   background-image: -webkit-gradient(linear, left bottom, right top, from(#4ee6d7), color-stop(#8242ad), to(#1c1d2d));
   background-image: linear-gradient(to top right, #4ee6d7, #8242ad, #1c1d2d);
+}
+
+.v-btn:not(.v-btn--depressed):not(.v-btn--flat).beauty-link {
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#4b1988), color-stop(80%, #8300fb), to(#ffffff));
+  background-image: linear-gradient(to top right, #4b1988, #8300fb 80%, #ffffff);
+  text-decoration: none;
+}
+
+.v-btn:not(.v-btn--depressed):not(.v-btn--flat).beauty-link.v-btn--top.v-btn--absolute {
+  top: -40px;
+}
+
+.cropp :after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 200px 80vw;
+  border-color: transparent transparent #27293d transparent;
 }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Menu;
 
 class MenuController extends Controller
 {
@@ -14,7 +15,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
+        $menu = Menu::where('slug','main')->with('items')->get()->first();
+        return response()->json(['menu'=>$menu]);
     }
 
     /**
@@ -46,7 +48,8 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        //
+        $menu = Menu::find($id)->with('items')->get();
+        return response()->json(['menu'=>$menu]);
     }
 
     /**

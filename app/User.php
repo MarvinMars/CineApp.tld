@@ -32,6 +32,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(FilmComment::class);
     }
+
     public function role()
     {
         return $this->hasMany(Role::class);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -46,7 +47,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id)->load('friends');
+        return response()->json(['user'=>$user]);
     }
 
     /**

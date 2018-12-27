@@ -1,22 +1,26 @@
 <template>
-    <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" @click="">
+    <v-list dense v-if="menus">
+        <v-list-tile v-for="menu in menus.items" :key="menu.id" @click="">
             <v-list-tile-action>
-                <v-icon>{{ item.icon }}</v-icon>
+                <v-icon>{{ menu.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
                 <v-list-tile-title>
-                    {{ item.text }}
+                    {{ menu.title }}
                 </v-list-tile-title>
             </v-list-tile-content>
         </v-list-tile>
-        <v-subheader class="mt-3 white--text text--darken-1" color="white" >SUBSCRIPTIONS</v-subheader>
+        <v-subheader
+                class="mt-3 white--text text--darken-1"
+                color="white"
+                v-if="friends"
+                >FRIENDS</v-subheader>
         <v-list>
-            <v-list-tile v-for="item in items2" :key="item.text" avatar @click="">
+            <v-list-tile v-for="friend in friends" :key="item.text" avatar @click="">
                 <v-list-tile-avatar>
-                    <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt="">
+                    <img :src="`https://randomuser.me/api/portraits/men/${friend.id}.jpg`" alt="">
                 </v-list-tile-avatar>
-                <v-list-tile-title v-text="item.text"></v-list-tile-title>
+                <v-list-tile-title v-text="friend.name"></v-list-tile-title>
             </v-list-tile>
         </v-list>
         <v-list-tile class="mt-3" @click="">
@@ -38,13 +42,8 @@
     export default {
         data: () => ({
             drawer: true,
-            items: [
-                { icon: 'trending_up', text: 'Most Popular' },
-                { icon: 'subscriptions', text: 'Subscriptions' },
-                { icon: 'history', text: 'History' },
-                { icon: 'featured_play_list', text: 'Playlists' },
-                { icon: 'watch_later', text: 'Watch Later' }
-            ],
+            menus: [],
+            friends:[],
             items2: [
                 { picture: 28, text: 'Joseph' },
                 { picture: 38, text: 'Apple' },
@@ -55,7 +54,36 @@
         }),
         props: {
             source: String
-        }
+        },
+        methods:{
+            LoadMenus: function(){
+                var vm = this;
+                axios.get('/api/menu',{})
+                    .then(function (res) {
+                        console.log(res);
+                        vm.menus = res.data.menu;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            },
+            LoadUser: function(){
+                console.log('hi');
+                var vm = this;
+                axios.get('/api/users/1',{'id':1})
+                    .then(function (res) {
+                        vm.friends = res.data.user.friends;
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
+        },
+        mounted(){
+            console.log('hi');
+            this.LoadMenus();
+            this.LoadUser();
+        },
     }
 </script>
 
