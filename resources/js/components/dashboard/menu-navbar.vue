@@ -68,7 +68,6 @@
                     });
             },
             LoadUser: function(){
-                console.log('hi');
                 var vm = this;
                 axios.get('/api/users/1',{'id':1})
                     .then(function (res) {
@@ -80,7 +79,6 @@
             }
         },
         mounted(){
-            console.log('hi');
             this.LoadMenus();
             this.LoadUser();
         },

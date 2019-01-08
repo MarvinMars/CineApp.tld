@@ -21,18 +21,16 @@ Vue.use(Vuetify);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+const App = require('./components/client/index.vue');
+const Films = require('./components/client/films/films.vue');
+const Film = require('./components/client/films/film.vue');
 
-Vue.component('app', require('./components/dashboard/app.vue'));
-Vue.component('menu-navbar', require('./components/dashboard/menu-navbar.vue'));
-Vue.component('feed', require('./components/dashboard/content/feed.vue'));
-Vue.component('film-card', require('./components/dashboard/content/film/film-card.vue'));
-Vue.component('film-card-show', require('./components/dashboard/content/film/film-card-show.vue'));
-
-const Feed = { template: '<feed></feed>' };
-const Film = { template: '<film-card-show></film-card-show>' };
+Vue.component('app', App);
+Vue.component('films', Films);
+Vue.component('film', Film);
 
 const routes = [
-    { path: '/', component: Feed },
+    { path: '/', component: Films },
     {
         name: 'film',
         path: '/film/:FilmId',
