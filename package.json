@@ -20,7 +20,9 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
+    "imdb-api": "^4.0.2",
     "vue-router": "^3.0.2",
-    "vuetify": "^1.3.11"
+    "vuetify": "^1.3.11",
+    "vuex": "^3.0.1"
   }
 }

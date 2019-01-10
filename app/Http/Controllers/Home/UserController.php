@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
+        $users = User::orderBy('id','desc')->paginate(20);
+        return response()->json(['users'=>$users]);
     }
 
     /**
@@ -83,5 +85,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function auth(Request $request){
+        $user = User::where('email',$request->get('email'))
+            ->get();
+        return response()->json(['user'=>$user]);
     }
 }

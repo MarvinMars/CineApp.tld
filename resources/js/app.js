@@ -6,41 +6,48 @@
  */
 
 require('./bootstrap');
-
 import Vuetify from 'vuetify';
-import VueRouter from 'vue-router';
-
+import Vuex from 'vuex';
 
 window.Vue = require('vue');
 
-Vue.use(VueRouter);
 Vue.use(Vuetify);
+Vue.use(Vuex);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-const App = require('./components/client/index.vue');
-const Films = require('./components/client/films/films.vue');
-const Film = require('./components/client/films/film.vue');
+import router from './routes/router'
 
-Vue.component('app', App);
-Vue.component('films', Films);
-Vue.component('film', Film);
+const store = new Vuex.Store({
+    state: {
+        user: null
+    },
+    mutations: {
+        login (state,data) {
+            var vm = this;
+            axios.post('/api/users/auth',data)
+            .then(function (res) {
+                console.log(res.data);
+                vm.user = res.data.user;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        },
+        logout (state) {
+            state.count++
+        },
+        check (state) {
+            if(state.user === null){
+                return false
+            }else{
+                return true
+            }
+        }
+    },
 
-const routes = [
-    { path: '/', component: Films },
-    {
-        name: 'film',
-        path: '/film/:FilmId',
-        component: Film
-    }
-];
-
-const router = new VueRouter({routes});
+});
 
 const app = new Vue({
     el: '#app',
     router,
+    store,
 }).$mount('#app');

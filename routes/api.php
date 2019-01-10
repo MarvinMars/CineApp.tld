@@ -18,4 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::resource('films','Home\Films\FilmController');
 Route::resource('users','Home\UserController');
+Route::post('users/auth','Home\UserController@auth');
 Route::resource('menu','Home\MenuController');

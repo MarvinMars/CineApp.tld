@@ -9,53 +9,56 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~vuetify/dist/vuetify.min.css';
 
-.application--wrap{
-  background: linear-gradient(#1e1e2f,#1e1e24);
-}
-.menu-mr{
-  background: #ba54f5;
-  background: linear-gradient(0deg, #00a18f, #9f9ef5, #5a0070);
-  box-shadow: 0 0 45px 0 rgba(0,0,0,.6);
-  margin-top: 60px!important;
-  margin-left: 20px!important;
-  border-radius: 5px;
-  width: 250px!important;
-}
-.toolbar-mr{
-  background-color: transparent!important;
-  box-shadow: none;
-}
-.v-navigation-drawer .v-list{
-  background: transparent!important;
-}
-.theme--dark.v-card {
-  background-color: #27293d;
-  border-color: #27293d;
-  border-radius: .2857rem;
-  color: hsla(0,0%,100%,.6);
-}
-.v-btn:not(.v-btn--depressed):not(.v-btn--flat){
-  &.gradient{
-    background-image: linear-gradient(to top right,#4ee6d7,#8242ad,#1c1d2d);
-  }
-  &.beauty-link{
-    background-image: linear-gradient(to top right, #4b1988, #8300fb 80%, #ffffff);
-    text-decoration: none;
-    &.v-btn--top.v-btn--absolute{
-      top: -40px;
-    }
-  }
-}
-.cropp{
-  :after{
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 200px 80vw;
-      border-color: transparent transparent #27293d transparent;
-  }
-}
+//.application--wrap{
+//  background: linear-gradient(#1e1e2f,#1e1e24);
+//}
+//.menu-mr{
+//  background: #ba54f5;
+//  background: linear-gradient(0deg, #00a18f, #9f9ef5, #5a0070);
+//  box-shadow: 0 0 45px 0 rgba(0,0,0,.6);
+//  margin-top: 60px!important;
+//  margin-left: 20px!important;
+//  border-radius: 5px;
+//  width: 250px!important;
+//}
+//.toolbar-mr{
+//  background-color: transparent!important;
+//  box-shadow: none;
+//}
+//.v-navigation-drawer .v-list{
+//  background: transparent!important;
+//}
+//.theme--dark.v-card {
+//  background-color: #27293d;
+//  border-color: #27293d;
+//  border-radius: .2857rem;
+//  color: hsla(0,0%,100%,.6);
+//}
+//.v-btn:not(.v-btn--depressed):not(.v-btn--flat){
+//  &.gradient{
+//    background-image: linear-gradient(to top right,#4ee6d7,#8242ad,#1c1d2d);
+//  }
+//  &.beauty-link{
+//    background-image: linear-gradient(to top right, #4b1988, #8300fb 80%, #ffffff);
+//    text-decoration: none;
+//    &.v-btn--top.v-btn--absolute{
+//      top: -40px;
+//    }
+//  }
+//}
+//.cropp{
+//  :after{
+//      content: '';
+//      position: absolute;
+//      bottom: 0;
+//      left: 0;
+//      width: 0;
+//      height: 0;
+//      border-style: solid;
+//      border-width: 0 0 200px 80vw;
+//      border-color: transparent transparent #27293d transparent;
+//  }
+//}
+//a{
+//  text-decoration: none!important;
+//}
