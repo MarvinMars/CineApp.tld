@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home\Films;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\FilmComment;
-use App\Film;
+use App\Models\Film;
 use App\User;
 
 class FilmController extends Controller
