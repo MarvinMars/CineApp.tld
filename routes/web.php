@@ -11,6 +11,34 @@
 |
 */
 
+Route::get('/',  function (){
+    return view('components');
+})->name('home');
+
+Route::get('/catalog',  function (){
+    return view('catalog');
+})->name('catalog');
+
+Route::get('/landing',  function (){
+    return view('landing');
+})->name('landing');
+
+Route::get('/profile',  function (){
+    return view('profile');
+})->name('profile');
+
+Route::get('/register',  function (){
+    return view('register');
+})->name('register');
+
+Route::get('/contact',  function (){
+    return view('landing');
+})->name('contact');
+
+Route::get('/about',  function (){
+    return view('landing');
+})->name('about');
+
 /* Auto-generated admin routes */
 Route::middleware(['auth:' . config('admin-auth.defaults.guard'), 'admin'])->group(function () {
     Route::get('/admin/admin-users',                            'Admin\AdminUsersController@index');

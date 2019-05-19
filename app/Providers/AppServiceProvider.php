@@ -13,7 +13,68 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $data = collect([
+            'social' => collect([
+              [
+                  'id' => '1',
+                  'icon' => 'fab fa-twitter',
+                  'name' => 'Twitter',
+                  'link' => '#'
+              ],
+              [
+                  'id' => '2',
+                  'icon' => 'fab fa-dribbble',
+                  'name' => 'Dribbble',
+                  'link' => '#'
+              ],
+              [
+                  'id' => '3',
+                  'icon' => 'fab fa-facebook-square',
+                  'name' => 'Facebook',
+                  'link' => '#'
+              ]
+            ]),
+            'categories' => collect([
+                [
+                    'id' => '1',
+                    'icon' => 'fab fa-twitter',
+                    'name' => 'Twitter',
+                    'link' => '#'
+                ],
+                [
+                    'id' => '2',
+                    'icon' => 'fab fa-dribbble',
+                    'name' => 'Dribbble',
+                    'link' => '#'
+                ],
+                [
+                    'id' => '3',
+                    'icon' => 'fab fa-facebook-square',
+                    'name' => 'Facebook',
+                    'link' => '#'
+                ],
+                [
+                    'id' => '4',
+                    'icon' => 'fab fa-twitter',
+                    'name' => 'Twitter',
+                    'link' => '#'
+                ],
+                [
+                    'id' => '5',
+                    'icon' => 'fab fa-dribbble',
+                    'name' => 'Dribbble',
+                    'link' => '#'
+                ],
+                [
+                    'id' => '6',
+                    'icon' => 'fab fa-facebook-square',
+                    'name' => 'Facebook',
+                    'link' => '#'
+                ]
+            ])
+        ]);
+
+        view()->share('data', $data);
     }
 
     /**

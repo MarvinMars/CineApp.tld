@@ -1,7 +1,6 @@
 @extends('app')
 @section('content')
     <section class="index-page">
-        @yield('navbar')
         <div class="wrapper">
             <div class="page-header header-filter">
                 <div class="squares square1"></div>
@@ -1072,58 +1071,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section-download" id="#download-section" data-background-color="black">
-                    <img src="assets/img/path1.png" class="path">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="text-center col-md-12 col-lg-8">
-                                <h2 class="title">Do you love this Bootstrap 4 Design System?</h2>
-                                <h4 class="description">Cause if you do, it can be yours for FREE. Hit the button below to navigate to Creative Tim where you can find the design system in HTML format. Start a new project or give an old Bootstrap project a new look!</h4>
-                            </div>
-                            <div class="text-center col-md-12 col-lg-8">
-                                <a href="https://www.creative-tim.com/product/blk-design-system" class="btn btn-primary btn-round btn-lg" role="button">
-                                    Download HTML
-                                </a>
-                                <!-- <a href="https://www.invisionapp.com/now" target="_blank" class="btn btn-primary btn-lg btn-simple btn-round" role="button">
-                                          Download PSD/Sketch
-                                      </a> -->
-                            </div>
-                        </div>
-                        <br>
-                        <br>
-                        <br>
-                        <!-- <div class="row text-center mt-5">
-                              <div class="col-md-8 ml-auto mr-auto">
-                                  <h2>Want more?</h2>
-                                  <h5 class="description">We've just launched <a href="http://demos.creative-tim.com/black-kit-pro/presentation.html" target="_blank">BLK• Design System PRO</a>. It has a huge number of components, sections and example pages. Start Your Development With A Badass Bootstrap 4 Design System.</h4>
-                              </div>
-                              <div class="col-md-12">
-                                  <a href="http://demos.creative-tim.com/black-kit-pro/presentation.html" class="btn btn-neutral btn-round btn-lg" target="_blank">
-                                      <i class="tim-icons icon-cloud-upload-94"></i> Upgrade to PRO
-                                  </a>
-                              </div>
-                          </div> -->
-                        <br>
-                        <br>
-                        <div class="row row-grid align-items-center my-md">
-                            <div class="col-lg-6">
-                                <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
-                                <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
-                            </div>
-                            <div class="col-lg-6 text-lg-center btn-wrapper">
-                                <a id="twitter" class="btn btn-icon btn-twitter btn-round btn-lg" data-toggle="tooltip" data-original-title="Tweet!">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a id="facebook" class="btn btn-icon btn-facebook btn-round btn-lg" data-toggle="tooltip" data-original-title="Share!">
-                                    <i class="fab fa-facebook-square"></i>
-                                </a>
-                                <a target="_blank" href="https://github.com/creativetimofficial" class="btn btn-icon btn-github btn-round btn-lg" data-toggle="tooltip" data-original-title="Star on Github">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Sart Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
@@ -1230,77 +1177,6 @@
                 </div>
                 <!--  End Modal -->
             </div>
-            <footer class="footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h1 class="title">BLK•</h1>
-                        </div>
-                        <div class="col-md-3">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        Home
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./examples/landing-page.html" class="nav-link">
-                                        Landing
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./examples/register-page.html" class="nav-link">
-                                        Register
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./examples/profile-page.html" class="nav-link">
-                                        Profile
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <ul class="nav">
-                                <li class="nav-item">
-                                    <a href="https://creative-tim.com/contact-us" class="nav-link">
-                                        Contact Us
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://creative-tim.com/about-us" class="nav-link">
-                                        About Us
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://creative-tim.com/blog" class="nav-link">
-                                        Blog
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="https://opensource.org/licenses/MIT" class="nav-link">
-                                        License
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <h3 class="title">Follow us:</h3>
-                            <div class="btn-wrapper profile">
-                                <a target="_blank" href="https://twitter.com/creativetim" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Follow us">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a target="_blank" href="https://www.facebook.com/creativetim" class="btn btn-icon btn-neutral btn-round btn-simple" data-toggle="tooltip" data-original-title="Like us">
-                                    <i class="fab fa-facebook-square"></i>
-                                </a>
-                                <a target="_blank" href="https://dribbble.com/creativetim" class="btn btn-icon btn-neutral  btn-round btn-simple" data-toggle="tooltip" data-original-title="Follow us">
-                                    <i class="fab fa-dribbble"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </section>
 @endsection

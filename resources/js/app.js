@@ -1,53 +1,48 @@
-
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
-require('./bootstrap');
+import './bootstrap.js'
+// import '../design/js/blk-design-system'
+import Vue from 'vue';
 import Vuetify from 'vuetify';
 import Vuex from 'vuex';
 
-window.Vue = require('vue');
-
-Vue.use(Vuetify);
 Vue.use(Vuex);
-
-import router from './routes/router'
+Vue.use(Vuetify, { theme: false });
 
 const store = new Vuex.Store({
     state: {
-        user: null
+        drawer: false,
     },
     mutations: {
-        login (state,data) {
-            var vm = this;
-            axios.post('/api/users/auth',data)
-            .then(function (res) {
-                console.log(res.data);
-                vm.user = res.data.user;
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        },
-        logout (state) {
-            state.count++
-        },
-        check (state) {
-            if(state.user === null){
-                return false
-            }else{
-                return true
-            }
+        switchDrawer (state) {
+            state.drawer = !state.drawer;
+        }
+    }
+});
+
+Vue.component('toolbar', {
+    methods: {
+        switchDrawer() {
+            this.$store.commit('switchDrawer');
+        }
+    }
+});
+
+Vue.component('navbar', {
+    props:['items'],
+    data: () => ({
+        drawerStatus: this.drawer,
+    }),
+    computed: {
+        drawer() {
+            return this.$store.state.drawer;
         }
     },
-
+    mounted() {
+        console.log(this.items);
+    }
 });
+
 
 const app = new Vue({
     el: '#app',
-    router,
     store,
-}).$mount('#app');
+});
