@@ -35454,26 +35454,95 @@ input.datetimepicker[data-color="yellow"] + .bootstrap-datetimepicker-widget.dro
   margin: 0;
 }
 
-.theme--dark.v-toolbar {
-  border-radius: 30px;
-  background: linear-gradient(45deg, #ba54f5, #171941);
-}
-
 .theme--dark.application {
   background-image: url(/images/dots.png?b81dabc0bc6ca52fce921e3a928d5e0f);
+  background-color: #171941;
   background-size: contain;
   color: #525f7f;
-  background-color: #171941;
 }
 
-.theme--dark.v-navigation-drawer {
-  margin-top: 10% !important;
+.theme--dark .v-toolbar {
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background: linear-gradient(45deg, #5e0f97, #171941);
+}
+
+.theme--dark .v-navigation-drawer {
+  margin-top: 5% !important;
   border-radius: 30px;
   padding: 20px;
-  background: linear-gradient(45deg, #171941, #ba54f5);
+  background: linear-gradient(45deg, #171941, #5e0f97);
 }
 
-.v-navigation-drawer .v-list {
+.theme--dark .v-navigation-drawer .v-list {
   background: transparent;
+}
+
+.theme--dark .v-footer {
+  background: linear-gradient(45deg, #5e0f97, #171941);
+}
+
+.film-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  background-color: #171941;
+  max-width: 100%;
+  min-height: 400px;
+  margin: 50px auto 150px auto;
+  -webkit-box-shadow: 8px 12px 30px black;
+          box-shadow: 8px 12px 30px black;
+  font-weight: normal;
+  text-align: left;
+  font-size: 18px;
+  position: relative;
+}
+
+.film-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 60%;
+  float: left;
+  height: 100%;
+  padding: 30px;
+  margin: 30px;
+  border: 1px solid #5b0f94;
+}
+
+.film-details p {
+  overflow-x: hidden;
+  max-height: 300px;
+}
+
+.film-image {
+  padding: 30px;
+}
+
+.film-image img {
+  width: 300px;
+}
+
+.card-transparent {
+  background-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 

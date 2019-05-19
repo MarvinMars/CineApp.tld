@@ -1,45 +1,19 @@
+/* Vendor components */
 import './bootstrap.js'
 // import '../design/js/blk-design-system'
 import Vue from 'vue';
 import Vuetify from 'vuetify';
-import Vuex from 'vuex';
-
-Vue.use(Vuex);
 Vue.use(Vuetify, { theme: false });
 
-const store = new Vuex.Store({
-    state: {
-        drawer: false,
-    },
-    mutations: {
-        switchDrawer (state) {
-            state.drawer = !state.drawer;
-        }
-    }
-});
+/* Store */
+import store from './store'
 
-Vue.component('toolbar', {
-    methods: {
-        switchDrawer() {
-            this.$store.commit('switchDrawer');
-        }
-    }
-});
+/* Custom components */
+import toolbar from './components/toolbar';
+import navbar from './components/navbar';
 
-Vue.component('navbar', {
-    props:['items'],
-    data: () => ({
-        drawerStatus: this.drawer,
-    }),
-    computed: {
-        drawer() {
-            return this.$store.state.drawer;
-        }
-    },
-    mounted() {
-        console.log(this.items);
-    }
-});
+Vue.component('toolbar', toolbar);
+Vue.component('navbar', navbar);
 
 
 const app = new Vue({

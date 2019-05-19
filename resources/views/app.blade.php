@@ -14,8 +14,8 @@
         <link href="{{asset('demo/demo.css')}}" rel="stylesheet" type="text/css">
     </head>
     <body>
-    <section id="app">
-        <v-app dark>
+    <section class="scrollbar" id="app">
+        <v-app dark  class="hide-overflow">
             @include('navbar')
             @include('toolbar')
             <v-content>

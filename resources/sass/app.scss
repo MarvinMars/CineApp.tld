@@ -3,23 +3,82 @@
 @import "../design/scss/blk-design-system";
 @import "./variables";
 
-.theme--dark.v-toolbar {
-  border-radius: 30px;
-  background: linear-gradient(45deg, $primary, $background);
+.theme--dark {
+  &.application {
+    background-image: url(./dots.png);
+    background-color: $background;
+    background-size: contain;
+    color: #525f7f;
+  }
+
+  .v-toolbar {
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background: linear-gradient(45deg, $primary, $background);
+  }
+
+  .v-navigation-drawer {
+    margin-top: 5% !important;
+    border-radius: 30px;
+    padding: 20px;
+    background: linear-gradient(45deg, $background, $primary);
+  }
+
+  .v-navigation-drawer .v-list {
+    background: transparent;
+  }
+
+  .v-footer {
+    background: linear-gradient(45deg, $primary, $background);
+  }
 }
 
-.theme--dark.application {
-  background-image: url(./dots.png);
-  background-size: contain;
-  color: #525f7f;
-  background-color: $background
+$bg-color: $background;
+$shadow-color: darken( $bg-color, 25%);
+$button-color: $primary;
+$button-shadow-color: darken($button-color, 25%);
+$font-size: 18px;
+
+.film-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  background-color: $background;
+  max-width: 100%;
+  min-height: 400px;
+  margin:  50px auto 150px auto;
+  box-shadow: 8px 12px 30px $shadow-color;
+  font-weight: normal;
+  text-align: left;
+  font-size: $font-size;
+  position: relative;
 }
-.theme--dark.v-navigation-drawer {
-  margin-top: 10% !important;
-  border-radius: 30px;
-  padding: 20px;
-  background: linear-gradient(45deg, $background, $primary);
+
+.film-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 60%;
+  float: left;
+  height: 100%;
+  padding: 30px;
+  margin: 30px;
+  border: 1px solid #5b0f94;
+
+  p {
+    overflow-x: hidden;
+    max-height: 300px;
+  }
 }
-.v-navigation-drawer .v-list {
-  background: transparent;
+
+.film-image {
+  padding: 30px;
+  img {
+    width: 300px;
+  }
+}
+.card-transparent {
+  background-color: transparent;
+  box-shadow: none;
 }
